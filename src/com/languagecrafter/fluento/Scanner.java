@@ -79,6 +79,7 @@ public class Scanner {
 		  case '=': addToken(match('=') ? EQUAL_EQUAL : EQUAL); break;
 		  case '<': addToken(match('=') ? LESS_EQUAL : LESS); break;
 		  case '>': addToken(match('=') ? GREATER_EQUAL : GREATER); break;
+		  // Single line Comment reconization
 		  case '/':
 			  if (match('/')) {
 				  // A comment goes until the end of the line.
@@ -137,6 +138,7 @@ public class Scanner {
 
 		// Look for a fractional part.
 		if (peek() == '.' && isDigit(peekNext())) {
+			// Consume the "."
 			advance();
 			while (isDigit(peek())) advance();
 		}
