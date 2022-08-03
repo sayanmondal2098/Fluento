@@ -7,12 +7,11 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.Scanner;
 
 public class Fluento {
 
     static boolean hadError = false;
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         if (args.length > 1) {
             System.out.println("Usage: Fluento [scripting language]");
             System.exit(64);    
