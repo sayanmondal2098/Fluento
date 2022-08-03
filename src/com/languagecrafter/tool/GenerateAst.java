@@ -29,18 +29,13 @@ public class GenerateAst {
 		writer.println("package com.languagecrafter.fluento;");
 		writer.println();
 
-		writer.println("import com.languagecrafter.fluento.Token;");
 		writer.println("import java.util.List;");
+
+		writer.println("import com.languagecrafter.fluento.Token;");
 		writer.println();
 
 
 		writer.println("abstract class " + baseName + " {");
-		for (String type : types) {
-			writer.println("    static class " + type + " {");
-			writer.println("        " + type + "(" + type + ") {");
-			writer.println("        }");
-			writer.println("    }");
-		}
 
 		for(String type : types) {
 			String className = type.split(":")[0].trim();
@@ -57,7 +52,7 @@ public class GenerateAst {
 		writer.println("        " + className + "(" + fieldList + ") {");
 
 		//Store Parameters
-		String[] fields = fieldList.split(",");
+		String[] fields = fieldList.split(", ");
 		for (String field : fields) {
 			String name = field.split(" ")[1];
 			writer.println("            this." + name + " = " + name + ";");
